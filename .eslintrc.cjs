@@ -22,8 +22,10 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
   ],
-  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
+  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks', 'import'],
   rules: {
     // JavaScript rules
     'prefer-const': 'warn',
@@ -58,6 +60,28 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'prettier/prettier': 'warn',
+    // import rules
+    'import/no-unresolved': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin', // Built-in imports (come from NodeJS native) go first
+          'external', // <- External imports
+          'internal', // <- Absolute imports
+          ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+          'index', // <- index imports
+          'unknown', // <- unknown
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+          order: 'asc',
+          /* ignore case. Options: [true, false] */
+          caseInsensitive: true,
+        },
+      },
+    ],
     'sort-imports': [
       'error',
       {
@@ -72,6 +96,11 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {
+        project: './tsconfig.json',
+      },
     },
   },
 };
