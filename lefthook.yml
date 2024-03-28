@@ -2,10 +2,10 @@ pre-commit:
    parallel: true
    commands:
      type-check:
-       glob: '*.{ts,tsx}'
+       glob: "*.{js,ts,jsx,tsx}"
        run: yarn typecheck
      prettier:
-       glob: './src/**'
+       glob: "*.{js,ts,jsx,tsx}"
        run: yarn prettier --check {staged_files}
      eslint:
        glob: "*.{js,ts,jsx,tsx}"
