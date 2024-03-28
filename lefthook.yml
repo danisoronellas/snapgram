@@ -1,0 +1,18 @@
+pre-commit:
+   parallel: true
+   commands:
+     type-check:
+       glob: '*.{ts,tsx}'
+       run: yarn typecheck
+     prettier:
+       glob: './src/**'
+       run: yarn prettier --check {staged_files}
+     eslint:
+       glob: "*.{js,ts,jsx,tsx}"
+       run: yarn eslint {staged_files}
+     spelling:
+       glob: '*.{js,ts,jsx,tsx,md}'
+       run: yarn cspell {staged_files}
+     markdown-link-check:
+       glob: '*.md'
+       run: npx markdown-link-check {staged_files}
