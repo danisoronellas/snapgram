@@ -30,7 +30,8 @@ module.exports = {
     // JavaScript rules
     'prefer-const': 'warn',
     'no-var': 'warn',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    'no-var-requires': 'off',
     'object-shorthand': 'warn',
     'quote-props': ['warn', 'as-needed'],
     // TypeScript rules
@@ -47,6 +48,8 @@ module.exports = {
         objectLiteralTypeAssertions: 'never',
       },
     ],
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     // React rules
     'react/jsx-fragments': ['warn', 'syntax'], // Shorthand syntax for React fragments
     'react/jsx-filename-extension': [
