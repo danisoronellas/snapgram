@@ -92,6 +92,8 @@ module.exports = {
         allowSeparatedGroups: true,
       },
     ],
+    '@next/next/no-html-link-for-pages': ['error', 'src/_root/pages/'],
+    '@next/next/no-img-element': 'off',
   },
   settings: {
     react: {
