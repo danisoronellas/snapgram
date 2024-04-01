@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/-Typescript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
   </div>
 
-Go to <a href="https://snapgram-ys72.vercel.app/sign-in">Snapgram site</a>
+Go to <a href="https://snapgram-murex-tau.vercel.app">Snapgram site</a>
 
 </div>
 
