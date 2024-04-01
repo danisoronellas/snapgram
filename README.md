@@ -67,23 +67,17 @@ Follow these steps to set up the project locally on your machine.
 
 Make sure you have the following installed on your machine:
 
-- [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Yarn](https://www.yarnpkg.com/) (Yarn Package Manager)
 
 **Cloning the Repository**
 
-```bash
-git clone https://github.com/adrianhajdin/social_media_app.git
-cd social_media_app
-```
-
 **Installation**
 
-Install the project dependencies using npm:
+Install the project dependencies using yarn:
 
 ```bash
-npm install
+yarn install
 ```
 
 **Set Up Environment Variables**
@@ -105,7 +99,7 @@ Replace the placeholder values with your actual Appwrite credentials. You can ob
 **Running the Project**
 
 ```bash
-npm start
+yarn run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
