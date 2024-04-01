@@ -25,7 +25,14 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
   ],
-  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks', 'import'],
+  plugins: [
+    'prettier',
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'import',
+    '@tanstack/eslint-plugin-query',
+  ],
   rules: {
     // JavaScript rules
     'prefer-const': 'warn',
