@@ -70,6 +70,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'prettier/prettier': 'warn',
+    'react/no-unescaped-entities': 'off',
     // import rules
     'import/no-unresolved': 'error',
     'import/order': [

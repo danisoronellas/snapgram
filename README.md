@@ -69,10 +69,17 @@ Make sure you have the following installed on your machine:
 
 - [Node.js](https://nodejs.org/en)
 - [Yarn](https://www.yarnpkg.com/) (Yarn Package Manager)
+- [n](https://github.com/tj/n) for NodeJs version manager
 
 **Cloning the Repository**
 
 **Installation**
+
+First make sure you're running the correct version of NodeJs according to project requirements 👇
+
+```bash
+n auto
+```
 
 Install the project dependencies using yarn:
 
