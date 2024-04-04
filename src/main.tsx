@@ -1,4 +1,3 @@
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,7 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <AuthProvider>
         <App />
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="top-left" />
     </QueryProvider>
   </BrowserRouter>,
 );
