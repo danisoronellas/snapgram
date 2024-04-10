@@ -12,7 +12,7 @@ import {
 } from '@/lib/react-query/queriesAndMutations.ts';
 
 const Explore = () => {
-  const { ref, inView, entry } = useInView();
+  const { ref, inView } = useInView();
   const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
 
   const [searchValue, setSearchValue] = useState('');
@@ -34,7 +34,7 @@ const Explore = () => {
   const shouldShowSearchResults = searchValue !== '';
   const shouldShowPosts =
     !shouldShowSearchResults &&
-    posts.pages.every((item) => item.documents.length === 0);
+    posts.pages.every((item) => item?.documents.length === 0);
 
   return (
     <div className="explore-container">
@@ -69,7 +69,7 @@ const Explore = () => {
         </div>
       </div>
       <div className="flex w-full max-w-5xl flex-wrap gap-9">
-        {shouldShowSearchResults ? (
+        {shouldShowSearchResults && searchedPosts ? (
           <SearchResults
             isSearchFetching={isSearchFetching}
             searchedPosts={searchedPosts}
@@ -78,7 +78,7 @@ const Explore = () => {
           <p className="mt-10 w-full text-center text-light-4">End of posts</p>
         ) : (
           posts.pages.map((item, index) => (
-            <GridPostList key={`page-${index}`} posts={item.documents} />
+            <GridPostList key={`page-${index}`} posts={item?.documents} />
           ))
         )}
       </div>

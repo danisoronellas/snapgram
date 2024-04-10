@@ -20,7 +20,6 @@ import { useToast } from '@/components/ui/use-toast.ts';
 import { useUserContext } from '@/context/AuthContext.tsx';
 import {
   useCreatePost,
-  useDeletePost,
   useUpdatePost,
 } from '@/lib/react-query/queriesAndMutations.ts';
 import { PostValidation } from '@/lib/validation';
@@ -35,8 +34,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
     useCreatePost();
   const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
     useUpdatePost();
-  const { mutateAsync: deletePost, isPending: isLoadingDelete } =
-    useDeletePost();
 
   const { user } = useUserContext();
   const { toast } = useToast();
@@ -70,18 +67,19 @@ const PostForm = ({ post, action }: PostFormProps) => {
       return navigate(`/posts/${post.$id}`);
     }
 
-    const newPost = await createPost({
-      ...values,
-      userId: user.id,
-    });
+    try {
+      await createPost({
+        ...values,
+        userId: user.id,
+      });
 
-    if (!newPost) {
+      navigate('/');
+    } catch (e) {
+      console.log(e);
       toast({
-        title: 'Please try again.',
+        title: 'Please try again',
       });
     }
-
-    navigate('/');
   }
 
   return (

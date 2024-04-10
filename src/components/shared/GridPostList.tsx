@@ -5,7 +5,7 @@ import PostStats from '@/components/shared/PostStats.tsx';
 import { useUserContext } from '@/context/AuthContext.tsx';
 
 type GridPostListProps = {
-  posts: Models.Document[];
+  posts?: Models.Document[];
   showUser?: boolean;
   showStats?: boolean;
 };
@@ -18,7 +18,7 @@ const GridPostList = ({
   const { user } = useUserContext();
   return (
     <ul className="grid-container">
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <li key={post.$id} className="relative h-80 min-w-80">
           <Link to={`/posts/${post.$id}`} className="grid-post_link">
             <img
