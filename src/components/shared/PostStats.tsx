@@ -11,12 +11,12 @@ import {
 import { checkIsLiked } from '@/lib/utils.ts';
 
 interface PostStatsProps {
-  post: Models.Document;
+  post?: Models.Document;
   userId: string;
 }
 
 const PostStats = ({ post, userId }: PostStatsProps) => {
-  const likesList = post.likes.map((user: Models.Document) => user.$id);
+  const likesList = post?.likes.map((user: Models.Document) => user.$id);
 
   const [likes, setLikes] = useState(likesList);
   const [isSaved, setIsSaved] = useState(false);
@@ -29,12 +29,12 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
   const { data: currentUser } = useGetCurrentUser();
 
   const savedPostRecord = currentUser?.save.find(
-    (record: Models.Document) => record.post.$id === post.$id,
+    (record: Models.Document) => record.post.$id === post?.$id,
   );
 
   useEffect(() => {
     setIsSaved(!!savedPostRecord);
-  }, [currentUser]);
+  }, [currentUser, savedPostRecord]);
 
   const handleLikePost = (e: MouseEvent) => {
     e.stopPropagation();
@@ -49,7 +49,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
     }
 
     setLikes(newLikes);
-    likedPost({ postId: post.$id, likesArray: newLikes });
+    likedPost({ postId: post?.$id || '', likesArray: newLikes });
   };
 
   const handleSavedPost = (e: MouseEvent) => {
@@ -61,7 +61,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
       return;
     }
 
-    savedPost({ postId: post.$id, userId });
+    savedPost({ postId: post?.$id || '', userId });
     setIsSaved(true);
   };
 
